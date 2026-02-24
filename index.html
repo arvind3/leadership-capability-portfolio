@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enterprise Capability Portfolio</title>
+  <style>
+    :root{--bg:#0b1020;--panel:#131a2e;--text:#e9eefb;--muted:#9fb0d4;--accent:#7aa2ff;--chip:#1d2848}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#0b1020,#0e1530);color:var(--text)}
+    .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 56px}
+    h1{font-size:clamp(28px,4vw,44px);margin:0 0 10px} p{color:var(--muted);line-height:1.5}
+    .hero{background:rgba(19,26,46,.75);border:1px solid #253258;border-radius:18px;padding:28px;backdrop-filter:blur(6px)}
+    .stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.stat{background:var(--chip);padding:10px 14px;border-radius:999px;color:#c9d6fb;font-size:13px}
+    h2{margin:36px 0 14px;font-size:24px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .card{background:var(--panel);border:1px solid #253258;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+    .card h3{margin:0;font-size:18px}
+    .value{color:#dbe5ff;font-weight:600}
+    ul{margin:0;padding-left:18px;color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}.tag{background:var(--chip);color:#bfd0ff;font-size:12px;padding:5px 9px;border-radius:999px}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Enterprise Capability Portfolio</h1>
+      <p>Independently developed solution portfolio showcasing reusable patterns for automation, decision intelligence, and AI-enabled engineering workflows. Each solution is designed to be adapted across enterprise contexts.</p>
+      <div class="stats">
+        <div class="stat">8 solutions</div>
+        <div class="stat">Multi-perspective storytelling</div>
+        <div class="stat">Public and reusable assets</div>
+      </div>
+    </section>
+
+    <h2>Solutions</h2>
+    <section class="grid">
+      <article class="card">
+        <h3>AI Explorer</h3>
+        <div class="value">Discover and evaluate free AI model options quickly for practical team use.</div>
+        <ul><li>Helps teams shortlist fit-for-purpose LLMs for coding, writing, and business tasks.</li><li>Supports cost-aware experimentation before formal platform standardization.</li></ul>
+        <div class="tags"><span class="tag">AI Discovery</span><span class="tag">Cost Optimization</span></div>
+        <a href="https://github.com/arvind3/ai-explorer">Repository</a>
+      </article>
+
+      <article class="card">
+        <h3>Retail Decision Intelligence Platform</h3>
+        <div class="value">Turn raw operational data into executive-ready insights and actions.</div>
+        <ul><li>Provides KPI visibility for revenue, margins, inventory, and promotion outcomes.</li><li>Enables fast root-cause analysis for performance shifts and trend anomalies.</li></ul>
+        <div class="tags"><span class="tag">Analytics</span><span class="tag">Decision Support</span></div>
+        <a href="https://github.com/arvind3/retail_analytics">Repository</a>
+      </article>
+
+      <article class="card">
+        <h3>FakerUI</h3>
+        <div class="value">Generate realistic test data in-browser to accelerate QA and development cycles.</div>
+        <ul><li>Reduces environment setup friction for teams needing immediate synthetic data.</li><li>Improves test scenario coverage with configurable data generation patterns.</li></ul>
+        <div class="tags"><span class="tag">Quality Engineering</span><span class="tag">Test Data</span></div>
+        <a href="https://github.com/arvind3/fakerUI">Repository</a>
+      </article>
+
+      <article class="card">
+        <h3>Robot Framework Fine-Tune Pipeline</h3>
+        <div class="value">Build domain-tuned AI assistance for test automation workflows.</div>
+        <ul><li>Creates curated datasets and fine-tuning pipelines for specialized QA use cases.</li><li>Helps organizations standardize AI-guided test authoring and troubleshooting.</li></ul>
+        <div class="tags"><span class="tag">MLOps</span><span class="tag">Test Automation</span></div>
+        <a href="https://github.com/arvind3/robot-finetune-model">Repository</a>
+      </article>
+
+      <article class="card">
+        <h3>RepoLens (Five Lenses)</h3>
+        <div class="value">Analyze repositories through engineering, product, and capability lenses.</div>
+        <ul><li>Speeds stakeholder understanding of technical assets and reuse potential.</li><li>Improves communication between engineering and leadership audiences.</li></ul>
+        <div class="tags"><span class="tag">Portfolio Intelligence</span><span class="tag">Communication</span></div>
+        <a href="https://github.com/arvind3/github-repo-five-lenses">Repository</a>
+      </article>
+
+      <article class="card">
+        <h3>GitHub Different Point of Views</h3>
+        <div class="value">Present one solution to different audiences without duplicating content.</div>
+        <ul><li>Packages the same platform story for executive, product, and engineering conversations.</li><li>Helps teams align faster on value, feasibility, and adoption paths.</li></ul>
+        <div class="tags"><span class="tag">Storytelling</span><span class="tag">Alignment</span></div>
+        <a href="https://github.com/arvind3/github-different-pointofviews">Repository</a>
+      </article>
+
+      <article class="card">
+        <h3>Playwrite-CLI</h3>
+        <div class="value">Automate browser-based tasks and testing from command-line workflows.</div>
+        <ul><li>Enables repeatable validation for web apps and digital processes.</li><li>Supports rapid automation prototyping for operations and QA teams.</li></ul>
+        <div class="tags"><span class="tag">Automation</span><span class="tag">CLI Workflows</span></div>
+        <a href="https://github.com/arvind3/Playwrite-CLI">Repository</a>
+      </article>
+
+      <article class="card">
+        <h3>Robot Framework IDE</h3>
+        <div class="value">Improve productivity for teams building and maintaining test automation suites.</div>
+        <ul><li>Centralizes authoring and execution workflows for Robot Framework users.</li><li>Lowers onboarding time for engineers entering automation-heavy projects.</li></ul>
+        <div class="tags"><span class="tag">Developer Experience</span><span class="tag">Testing</span></div>
+        <a href="https://github.com/arvind3/robot-framework-ide">Repository</a>
+      </article>
+    </section>
+  </div>
+</body>
+</html>
