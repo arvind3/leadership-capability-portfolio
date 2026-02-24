@@ -6,132 +6,159 @@
   <title>Enterprise Capability Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#090e1c;
-      --panel:#101833;
-      --panel-2:#172447;
-      --text:#eaf0ff;
-      --muted:#9aacd6;
-      --accent:#6fe3ff;
-      --accent-2:#9e8bff;
-      --line:#2a3868;
-      --ok:#86ffcf;
+      --bg:#070b14;
+      --surface:#0f172bcc;
+      --surface-2:#101c36cc;
+      --line:#ffffff22;
+      --line-strong:#ffffff40;
+      --text:#eef4ff;
+      --muted:#aab9d6;
+      --aqua:#69e3ff;
+      --violet:#8d8bff;
+      --pink:#d28dff;
+      --chip:#ffffff14;
+      --shadow:0 22px 60px #00000066;
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family:'Manrope',system-ui,sans-serif;
+      font-family:'Outfit',system-ui,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 15% 10%, #1b2f6e66, transparent 35%),
-        radial-gradient(circle at 90% 15%, #3e2d7d55, transparent 28%),
-        linear-gradient(180deg,#090e1c 0%, #0b1226 100%);
+        radial-gradient(65rem 65rem at -8% -20%, #6f7eff35, transparent 62%),
+        radial-gradient(55rem 55rem at 110% -10%, #31ccff24, transparent 58%),
+        radial-gradient(44rem 44rem at 50% 118%, #be75ff21, transparent 68%),
+        linear-gradient(180deg,#070b14 0%, #090f1f 100%);
+      background-attachment:fixed;
+      letter-spacing:.01em;
     }
-    .wrap{max-width:1180px;margin:0 auto;padding:32px 20px 62px}
 
-    .hero{
-      background:linear-gradient(140deg,#101833cc,#1d2e5acc);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:30px;
-      box-shadow:0 18px 55px #00000050;
-      position:relative;
-      overflow:hidden;
+    .grain::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.16;
+      mix-blend-mode:soft-light;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='130' height='130' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E");
     }
-    .hero:after{
+
+    .wrap{max-width:1180px;margin:0 auto;padding:32px 20px 70px;position:relative;z-index:1}
+
+    .glass{
+      backdrop-filter:blur(16px) saturate(140%);
+      background:linear-gradient(150deg,var(--surface),var(--surface-2));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      border-radius:24px;
+    }
+
+    .hero{padding:34px 30px 28px;position:relative;overflow:hidden}
+    .hero::after{
       content:"";
       position:absolute;
-      width:340px;height:340px;
-      right:-110px;top:-120px;
-      background:radial-gradient(circle,var(--accent-2),transparent 62%);
-      opacity:.25;
+      width:460px;height:460px;
+      right:-170px;top:-220px;
+      background:radial-gradient(circle at center,#9f8cff66,transparent 66%);
       pointer-events:none;
     }
 
     .eyebrow{
-      display:inline-block;
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:#bdd0ff;
-      background:#1d284b;
-      border:1px solid #30467d;
-      border-radius:999px;
-      padding:7px 11px;
-      margin-bottom:12px;
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+      color:#cbe2ff;background:#ffffff1a;border:1px solid #ffffff2a;
+      padding:8px 12px;border-radius:999px;
     }
-    h1{
-      font-family:'DM Serif Display',serif;
-      font-size:clamp(32px,4.6vw,52px);
-      line-height:1.05;
-      margin:0 0 10px;
-      font-weight:400;
-    }
-    .subtitle{color:#cbdaff;max-width:900px;margin:0 0 16px;line-height:1.55}
+    .dot{width:6px;height:6px;border-radius:999px;background:var(--aqua);box-shadow:0 0 0 6px #69e3ff22}
 
-    .quick-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    h1{
+      margin:16px 0 12px;
+      font-family:'Fraunces',serif;
+      font-weight:600;
+      font-size:clamp(36px,5.1vw,64px);
+      line-height:1.02;
+      letter-spacing:-.02em;
+      max-width:860px;
+    }
+    .subtitle{margin:0;color:#d5e2fb;max-width:840px;line-height:1.6;font-size:18px}
+
+    .quick{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
     .btn{
       display:inline-flex;align-items:center;gap:8px;
-      color:var(--text);text-decoration:none;
-      background:#1b2950;border:1px solid #38508a;
-      padding:10px 14px;border-radius:12px;font-size:14px;font-weight:700;
-      transition:.2s ease;
+      text-decoration:none;color:#eff5ff;font-weight:600;font-size:14px;
+      padding:11px 14px;border-radius:12px;
+      border:1px solid #ffffff35;background:#ffffff12;
+      transition:transform .2s ease,border-color .2s ease,background .2s ease;
     }
-    .btn:hover{transform:translateY(-1px);border-color:#5f84d0;background:#203565}
+    .btn:hover{transform:translateY(-1px);border-color:#ffffff70;background:#ffffff1f}
 
-    .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-    .stat{background:#172447;border:1px solid #2c3e73;color:#d8e5ff;padding:8px 12px;border-radius:999px;font-size:13px}
+    .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .stat{font-size:13px;color:#d7e6ff;background:var(--chip);border:1px solid #ffffff2a;padding:8px 11px;border-radius:999px}
 
-    h2{margin:34px 0 14px;font-size:25px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:14px}
+    h2{
+      margin:38px 0 14px;
+      font-family:'Fraunces',serif;
+      font-weight:400;
+      font-size:34px;
+      letter-spacing:-.01em;
+    }
 
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
     .card{
-      background:linear-gradient(170deg,var(--panel),var(--panel-2));
-      border:1px solid var(--line);
-      border-radius:15px;
       padding:16px;
-      display:flex;flex-direction:column;gap:11px;
-      min-height:260px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:linear-gradient(160deg,#0f1931dd,#122142dd);
+      backdrop-filter:blur(12px);
+      box-shadow:inset 0 1px 0 #ffffff1a,0 12px 30px #00000045;
+      display:flex;flex-direction:column;gap:10px;
+      min-height:285px;
+      transition:transform .26s ease,border-color .26s ease;
     }
-    .card h3{margin:0;font-size:19px;line-height:1.2}
-    .value{font-weight:700;color:#d9e6ff}
-    ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.45}
+    .card:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+    .card h3{margin:0;font-size:22px;line-height:1.16;letter-spacing:-.01em}
+    .value{margin:0;color:#deebff;font-weight:500;line-height:1.5}
+    ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.5}
 
-    .tags{display:flex;flex-wrap:wrap;gap:8px}
-    .tag{font-size:12px;background:#1e2f5e;border:1px solid #355397;color:#c4d8ff;padding:4px 9px;border-radius:999px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+    .tag{font-size:12px;padding:5px 9px;border-radius:999px;background:#ffffff14;border:1px solid #ffffff2a;color:#d5e4ff}
 
-    .links{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
-    .links a{color:var(--accent);font-weight:700;text-decoration:none;font-size:14px}
+    .links{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:4px}
+    .links a{text-decoration:none;color:var(--aqua);font-weight:600;font-size:14px}
     .links a:hover{text-decoration:underline}
 
-    .about{
-      margin-top:18px;
-      background:linear-gradient(150deg,#101833,#132145);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px;
+    .about{margin-top:18px;padding:20px 18px}
+    .about h3{margin:0 0 10px;font-size:22px}
+    .about ul{columns:1}
+
+    .social{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .social a{
+      text-decoration:none;color:#f0f6ff;font-weight:600;font-size:14px;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:12px;border:1px solid #ffffff33;background:#ffffff12;
     }
-    .about h3{margin:0 0 10px;font-size:20px}
-    .about ul{columns:1;column-gap:26px}
-    .social{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .social a{display:inline-flex;align-items:center;gap:8px;background:#1d2f5f;border:1px solid #355394;color:#e8efff;padding:9px 12px;border-radius:11px;text-decoration:none;font-weight:700}
-    .social a:hover{border-color:#6a91df}
+    .social a:hover{border-color:#ffffff70}
     .logo{width:16px;height:16px;display:inline-block}
 
-    @media (max-width:760px){
-      .about ul{columns:1}
+    @media (max-width:700px){
+      .hero{padding:24px 18px}
+      .subtitle{font-size:16px}
+      h2{font-size:29px}
     }
   </style>
 </head>
-<body>
+<body class="grain">
   <div class="wrap">
-    <section class="hero">
-      <div class="eyebrow">Portfolio Showcase</div>
+    <section class="hero glass">
+      <div class="eyebrow"><span class="dot"></span> Portfolio Showcase</div>
       <h1>Enterprise Capability Portfolio</h1>
       <p class="subtitle">Independently developed solution portfolio focused on practical enterprise reuse. Each solution demonstrates a clear capability, business value, and adaptation potential across different delivery contexts.</p>
-      <div class="quick-links">
+      <div class="quick">
         <a class="btn" href="https://github.com/arvind3?tab=repositories" target="_blank" rel="noopener">View All GitHub Repositories</a>
       </div>
       <div class="stats">
@@ -145,7 +172,7 @@
     <section class="grid">
       <article class="card">
         <h3>AI Explorer</h3>
-        <div class="value">Discover and evaluate free AI model options quickly for practical team use.</div>
+        <p class="value">Discover and evaluate free AI model options quickly for practical team use.</p>
         <ul>
           <li>Helps teams shortlist fit-for-purpose LLMs for coding, writing, and business tasks.</li>
           <li>Supports cost-aware experimentation before formal platform standardization.</li>
@@ -160,7 +187,7 @@
 
       <article class="card">
         <h3>Retail Decision Intelligence Platform</h3>
-        <div class="value">Turn raw operational data into executive-ready insights and actions.</div>
+        <p class="value">Turn raw operational data into executive-ready insights and actions.</p>
         <ul>
           <li>Provides KPI visibility for revenue, margins, inventory, and promotion outcomes.</li>
           <li>Enables fast root-cause analysis for performance shifts and trend anomalies.</li>
@@ -175,7 +202,7 @@
 
       <article class="card">
         <h3>FakerUI</h3>
-        <div class="value">Generate realistic test data in-browser to accelerate QA and development cycles.</div>
+        <p class="value">Generate realistic test data in-browser to accelerate QA and development cycles.</p>
         <ul>
           <li>Reduces environment setup friction for teams needing immediate synthetic data.</li>
           <li>Improves test scenario coverage with configurable data generation patterns.</li>
@@ -190,7 +217,7 @@
 
       <article class="card">
         <h3>AI Quality Engineering Accelerator</h3>
-        <div class="value">Create domain-tuned AI capability to improve test automation quality and speed.</div>
+        <p class="value">Create domain-tuned AI capability to improve test automation quality and speed.</p>
         <ul>
           <li>Creates curated datasets and fine-tuning pipelines for specialized QA use cases.</li>
           <li>Helps organizations standardize AI-guided test authoring and troubleshooting.</li>
@@ -205,7 +232,7 @@
 
       <article class="card">
         <h3>Playwright CLI Book with Interactive IDE</h3>
-        <div class="value">Learn browser automation directly in the browser with instant, device-agnostic execution.</div>
+        <p class="value">Learn browser automation directly in the browser with instant, device-agnostic execution.</p>
         <ul>
           <li>In-browser execution removes local setup delays and makes onboarding immediate.</li>
           <li>Built-in interactive IDE lets users edit, run, and learn from live examples in real time.</li>
@@ -219,7 +246,7 @@
 
       <article class="card">
         <h3>Robot Framework IDE</h3>
-        <div class="value">VS Code-like Robot Framework IDE in the browser, with in-memory LLM assistance powered by WebAssembly.</div>
+        <p class="value">VS Code-like Robot Framework IDE in the browser, with in-memory LLM assistance powered by WebAssembly.</p>
         <ul>
           <li>Run, edit, and validate tests directly in-browser with zero local machine setup.</li>
           <li>AI-assisted authoring experience helps teams learn faster and ship automation sooner.</li>
@@ -233,7 +260,7 @@
 
       <article class="card">
         <h3>Robot Framework Book with Interactive IDE</h3>
-        <div class="value">Learn Robot Framework in-browser with live execution and zero-machine setup friction.</div>
+        <p class="value">Learn Robot Framework in-browser with live execution and zero-machine setup friction.</p>
         <ul>
           <li>In-browser execution enables learning and practice on any device without local environment setup.</li>
           <li>Interactive IDE with live content supports faster onboarding and hands-on skill development.</li>
@@ -247,7 +274,7 @@
 
       <article class="card">
         <h3>Reusable Test Automation Skills</h3>
-        <div class="value">Agentic skill package for Robot Framework workflows, built for practical adoption and fast reuse.</div>
+        <p class="value">Agentic skill package for Robot Framework workflows, built for practical adoption and fast reuse.</p>
         <ul>
           <li>Uses the Skills.md pattern widely adopted in the open-source agent ecosystem.</li>
           <li>Keeps onboarding simple: install, run, and adapt quickly for real automation use cases.</li>
@@ -261,7 +288,7 @@
     </section>
 
     <h2>About Me</h2>
-    <section class="about">
+    <section class="about glass">
       <h3>Professional Profile</h3>
       <ul>
         <li>Fellow, Perplexity</li>
