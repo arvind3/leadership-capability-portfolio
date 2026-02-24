@@ -134,7 +134,10 @@
 
     .about{margin-top:18px;padding:20px 18px}
     .about h3{margin:0 0 10px;font-size:22px}
-    .about ul{columns:1}
+    .about ul{columns:1;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+    .org-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:#e8f1ff;font-weight:500}
+    .org-link:hover{color:#9de8ff}
+    .org-logo{width:26px;height:26px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;background:#ffffff14;border:1px solid #ffffff2f;font-size:12px;font-weight:700}
 
     .social{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .social a{
@@ -291,11 +294,10 @@
     <section class="about glass">
       <h3>Professional Profile</h3>
       <ul>
-        <li>Fellow, Perplexity</li>
-        <li>Fellow, The Institution of Electronics and Telecommunication Engineers (IETE)</li>
-        <li>Senior Member, Institute of Electrical and Electronics Engineers (IEEE)</li>
-        <li>Masters in Computer</li>
-        <li>Master of Business Administration (MBA)</li>
+        <li><a class="org-link" href="https://www.perplexity.ai" target="_blank" rel="noopener"><span class="org-logo">P</span> Fellow, Perplexity</a></li>
+        <li><a class="org-link" href="https://www.iete.org" target="_blank" rel="noopener"><span class="org-logo">I</span> Fellow, The Institution of Electronics and Telecommunication Engineers (IETE)</a></li>
+        <li><a class="org-link" href="https://www.ieee.org" target="_blank" rel="noopener"><span class="org-logo">IEEE</span> Senior Member, Institute of Electrical and Electronics Engineers (IEEE)</a></li>
+        <li><a class="org-link" href="https://www.iaeng.org" target="_blank" rel="noopener"><span class="org-logo">IA</span> Member, International Association of Engineering (IAENG)</a></li>
       </ul>
       <div class="social">
         <a href="https://www.linkedin.com/in/arvindkumarbhardwaj/" target="_blank" rel="noopener">
