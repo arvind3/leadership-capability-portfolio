@@ -118,15 +118,62 @@
       box-shadow:inset 0 1px 0 #ffffff1a,0 12px 30px #00000045;
       display:flex;flex-direction:column;gap:10px;
       min-height:285px;
-      transition:transform .26s ease,border-color .26s ease;
+      transition:transform .26s ease,border-color .26s ease, box-shadow .26s ease;
+      position:relative;
+      overflow:hidden;
     }
     .card:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+
+    .card.genai{
+      border:1px solid transparent;
+      background:
+        linear-gradient(160deg,#0f1931dd,#122142dd) padding-box,
+        linear-gradient(135deg,#6ef0ff,#8d8bff,#c089ff) border-box;
+      box-shadow:
+        inset 0 1px 0 #ffffff22,
+        0 14px 32px #00000048,
+        0 0 0 1px #89d9ff1a,
+        0 0 28px #8b8bff2b;
+    }
+
+    .card.genai::before{
+      content:"";
+      position:absolute;
+      inset:-20% -30% auto auto;
+      width:210px;height:120px;
+      background:radial-gradient(circle at center,#6ef0ff30,transparent 70%);
+      pointer-events:none;
+    }
+
+    .ribbon{
+      position:absolute;
+      top:12px;
+      right:-46px;
+      transform:rotate(36deg);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#f3fbff;
+      padding:6px 52px;
+      background:linear-gradient(90deg,#4bdfff,#8d8bff,#c089ff);
+      border:1px solid #ffffff66;
+      box-shadow:0 8px 20px #00000045;
+      z-index:3;
+      pointer-events:none;
+    }
     .card h3{margin:0;font-size:22px;line-height:1.16;letter-spacing:-.01em}
     .value{margin:0;color:#deebff;font-weight:500;line-height:1.5}
     ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.5}
 
     .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
     .tag{font-size:12px;padding:5px 9px;border-radius:999px;background:#ffffff14;border:1px solid #ffffff2a;color:#d5e4ff}
+    .tag-genai{
+      background:linear-gradient(135deg,#40d8ff33,#7f8dff2e,#c089ff2e);
+      border:1px solid #8adfff80;
+      color:#e9f7ff;
+      box-shadow:inset 0 1px 0 #ffffff42,0 4px 10px #00000025;
+    }
 
     .links{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:4px}
     .links a{text-decoration:none;color:var(--aqua);font-weight:600;font-size:14px}
@@ -185,14 +232,15 @@
 
     <h2>Solutions</h2>
     <section class="grid">
-      <article class="card">
+      <article class="card genai">
+        <div class="ribbon">LLM / GenAI</div>
         <h3>AI Explorer</h3>
         <p class="value">Discover and evaluate free AI model options quickly for practical team use.</p>
         <ul>
           <li>Helps teams shortlist fit-for-purpose LLMs for coding, writing, and business tasks.</li>
           <li>Supports cost-aware experimentation before formal platform standardization.</li>
         </ul>
-        <div class="tags"><span class="tag">AI Discovery</span><span class="tag">Cost Optimization</span></div>
+        <div class="tags"><span class="tag tag-genai">AI Discovery</span><span class="tag tag-genai">LLM Evaluation</span><span class="tag">Cost Optimization</span></div>
         <div class="links">
           <a href="https://github.com/arvind3/ai-explorer" target="_blank" rel="noopener">Repository</a>
           <a href="https://arvind3.github.io/ai-explorer/docs/" target="_blank" rel="noopener">Perspective Index</a>
@@ -230,14 +278,15 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card genai">
+        <div class="ribbon">LLM / GenAI</div>
         <h3>AI Quality Engineering Accelerator</h3>
         <p class="value">Create domain-tuned AI capability to improve test automation quality and speed.</p>
         <ul>
           <li>Creates curated datasets and fine-tuning pipelines for specialized QA use cases.</li>
           <li>Helps organizations standardize AI-guided test authoring and troubleshooting.</li>
         </ul>
-        <div class="tags"><span class="tag">MLOps</span><span class="tag">Test Automation</span></div>
+        <div class="tags"><span class="tag tag-genai">MLOps</span><span class="tag tag-genai">Fine-tuned LLM</span><span class="tag">Test Automation</span></div>
         <div class="links">
           <a href="https://github.com/arvind3/robot-finetune-model" target="_blank" rel="noopener">Repository</a>
           <a href="https://arvind3.github.io/robot-finetune-model/perspectives/" target="_blank" rel="noopener">Perspective Index</a>
@@ -259,14 +308,15 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card genai">
+        <div class="ribbon">LLM / GenAI</div>
         <h3>Robot Framework IDE</h3>
         <p class="value">VS Code-like Robot Framework IDE in the browser, with in-memory LLM assistance powered by WebAssembly.</p>
         <ul>
           <li>Run, edit, and validate tests directly in-browser with zero local machine setup.</li>
           <li>AI-assisted authoring experience helps teams learn faster and ship automation sooner.</li>
         </ul>
-        <div class="tags"><span class="tag">In-Browser IDE</span><span class="tag">LLM + WebAssembly</span></div>
+        <div class="tags"><span class="tag">In-Browser IDE</span><span class="tag tag-genai">LLM + WebAssembly</span><span class="tag tag-genai">GenAI Assist</span></div>
         <div class="links">
           <a href="https://github.com/arvind3/robot-framework-ide" target="_blank" rel="noopener">Repository</a>
           <a href="https://arvind3.github.io/robot-framework-ide/" target="_blank" rel="noopener">Live App</a>
