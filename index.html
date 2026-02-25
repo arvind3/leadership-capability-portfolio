@@ -108,7 +108,22 @@
       letter-spacing:-.01em;
     }
 
+    .solutions-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+    .solution-toggle{display:flex;gap:8px;flex-wrap:wrap}
+    .toggle-btn{
+      appearance:none;border:1px solid #ffffff3a;background:#ffffff12;color:#eaf3ff;
+      padding:9px 12px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.01em;
+      cursor:pointer;transition:all .2s ease;
+    }
+    .toggle-btn:hover{border-color:#ffffff70;background:#ffffff1f}
+    .toggle-btn.active{
+      border-color:#8fddff;
+      background:linear-gradient(135deg,#40d8ff33,#7f8dff2e,#c089ff2e);
+      box-shadow:inset 0 1px 0 #ffffff55,0 6px 18px #00000033;
+    }
+
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+    .card.is-hidden{display:none !important}
     .card{
       padding:16px;
       border-radius:18px;
@@ -211,6 +226,9 @@
       .hero{padding:24px 18px}
       .subtitle{font-size:16px}
       h2{font-size:29px}
+      .solutions-head{align-items:stretch}
+      .solution-toggle{width:100%}
+      .toggle-btn{flex:1;justify-content:center;text-align:center;min-height:42px}
     }
   </style>
 </head>
@@ -230,8 +248,14 @@
       </div>
     </section>
 
-    <h2>Solutions</h2>
-    <section class="grid">
+    <div class="solutions-head">
+      <h2 style="margin:0;">Solutions</h2>
+      <div class="solution-toggle" role="tablist" aria-label="Solution filter">
+        <button id="toggle-all" class="toggle-btn active" type="button" aria-pressed="true">All Solutions</button>
+        <button id="toggle-genai" class="toggle-btn" type="button" aria-pressed="false">GenAI Solutions</button>
+      </div>
+    </div>
+    <section id="solutions-grid" class="grid">
       <article class="card genai">
         <div class="ribbon">LLM / GenAI</div>
         <h3>AI Explorer</h3>
@@ -373,5 +397,31 @@
       </div>
     </section>
   </div>
+
+  <script>
+    (function () {
+      const allBtn = document.getElementById('toggle-all');
+      const genaiBtn = document.getElementById('toggle-genai');
+      const cards = Array.from(document.querySelectorAll('#solutions-grid .card'));
+
+      function setMode(mode) {
+        const showGenAIOnly = mode === 'genai';
+
+        cards.forEach(card => {
+          const isGenAI = card.classList.contains('genai');
+          const hide = showGenAIOnly && !isGenAI;
+          card.classList.toggle('is-hidden', hide);
+        });
+
+        allBtn.classList.toggle('active', !showGenAIOnly);
+        genaiBtn.classList.toggle('active', showGenAIOnly);
+        allBtn.setAttribute('aria-pressed', String(!showGenAIOnly));
+        genaiBtn.setAttribute('aria-pressed', String(showGenAIOnly));
+      }
+
+      allBtn.addEventListener('click', () => setMode('all'));
+      genaiBtn.addEventListener('click', () => setMode('genai'));
+    })();
+  </script>
 </body>
 </html>
